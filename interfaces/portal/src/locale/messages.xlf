@@ -80,6 +80,9 @@
       <trans-unit id="1369610904910546430" datatype="html">
         <source>Who we share information with</source>
       </trans-unit>
+      <trans-unit id="1373921927026664666" datatype="html">
+        <source>We couldn&apos;t complete the integration due to the following issues in your Kobo form. Please review your Kobo form and fix these errors, then save and redeploy:</source>
+      </trans-unit>
       <trans-unit id="138735154290622738" datatype="html">
         <source>yourname@example.org</source>
       </trans-unit>
@@ -203,6 +206,9 @@
       </trans-unit>
       <trans-unit id="1867309401161150879" datatype="html">
         <source>The data of the 121 Platform is hosted in a Microsoft Azure-environment of The Netherlands Red Cross.</source>
+      </trans-unit>
+      <trans-unit id="187187500641108332" datatype="html">
+        <source><x equiv-text="{{ info }}" id="INTERPOLATION"/></source>
       </trans-unit>
       <trans-unit id="1872549287181572098" datatype="html">
         <source>Import existing registrations from your Kobo form.</source>
@@ -1662,6 +1668,9 @@
       <trans-unit id="8255959026836387530" datatype="html">
         <source>Email copied to clipboard</source>
       </trans-unit>
+      <trans-unit id="8267283367469506410" datatype="html">
+        <source>Kobo form integration errors</source>
+      </trans-unit>
       <trans-unit id="8270214591182392971" datatype="html">
         <source>Brand code</source>
       </trans-unit>
@@ -2190,6 +2199,9 @@
       <trans-unit id="generic-success" datatype="html">
         <source>Success</source>
       </trans-unit>
+      <trans-unit id="generic-try-again" datatype="html">
+        <source>Try again</source>
+      </trans-unit>
       <trans-unit id="generic-type-or-select" datatype="html">
         <source>Type or select</source>
       </trans-unit>
@@ -2573,18 +2585,6 @@
       </trans-unit>
       <trans-unit id="unsaved-changes-warning-label" datatype="html">
         <source>Unsaved changes warning</source>
-      </trans-unit>
-      <trans-unit id="1373921927026664666" datatype="html">
-        <source>We couldn&apos;t complete the integration due to the following issues in your Kobo form. Please review your Kobo form and fix these errors, then save and redeploy:</source>
-      </trans-unit>
-      <trans-unit id="187187500641108332" datatype="html">
-        <source><x equiv-text="{{ info }}" id="INTERPOLATION"/></source>
-      </trans-unit>
-      <trans-unit id="8267283367469506410" datatype="html">
-        <source>Kobo form integration errors</source>
-      </trans-unit>
-      <trans-unit id="generic-try-again" datatype="html">
-        <source>Try again</source>
       </trans-unit>
     </body>
   </file>
