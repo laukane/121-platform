@@ -184,6 +184,33 @@ class RegistrationDataPage extends BasePage {
       );
     }
   }
+
+  async validateErrorDialog({
+    configurationErrors,
+    missingFields,
+  }: {
+    configurationErrors: string[];
+    missingFields: string[];
+  }) {
+    const koboIntegrationDialog = new DialogComponent(
+      this.page
+        .getByTestId('kobo-integration-error-dialog')
+        .locator('.p-dialog'),
+    );
+    await koboIntegrationDialog.waitForVisible();
+
+    await Promise.all(
+      configurationErrors.map(async (error) => {
+        await expect(koboIntegrationDialog.dialog).toContainText(error);
+      }),
+    );
+
+    await Promise.all(
+      missingFields.map(async (field) => {
+        await expect(koboIntegrationDialog.dialog).toContainText(field);
+      }),
+    );
+  }
 }
 
 export default RegistrationDataPage;
