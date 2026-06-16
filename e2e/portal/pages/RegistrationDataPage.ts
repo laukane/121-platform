@@ -185,31 +185,42 @@ class RegistrationDataPage extends BasePage {
     }
   }
 
-  async validateErrorDialog({
+  async validateMissingFields({ missingFields }: { missingFields: string[] }) {
+    for (const field of missingFields) {
+      const missingFieldTag = this.page.getByTestId(
+        'kobo-integration-missing-field-' + field,
+      );
+      await expect(missingFieldTag).toBeVisible();
+      await expect(missingFieldTag).toHaveText(field);
+    }
+  }
+
+  async validateKoboConfigurationErrorsTable({
+    configurationErrorsTableColumns,
     configurationErrors,
-    missingFields,
   }: {
+    configurationErrorsTableColumns: string[];
     configurationErrors: string[];
-    missingFields: string[];
   }) {
+    const configurationErrorsTable = this.page
+      .getByTestId('kobo-integration-configuration-errors-table')
+      .locator('table');
+    const columnHeaders = await configurationErrorsTable
+      .locator('th')
+      .allInnerTexts();
+    const rows = await configurationErrorsTable.locator('td').allInnerTexts();
+
+    await expect(columnHeaders).toEqual(configurationErrorsTableColumns);
+    await expect(rows.map((row) => row.trim())).toEqual(configurationErrors);
+  }
+
+  async validateErrorDialogIsShown() {
     const koboIntegrationDialog = new DialogComponent(
       this.page
         .getByTestId('kobo-integration-error-dialog')
         .locator('.p-dialog'),
     );
     await koboIntegrationDialog.waitForVisible();
-
-    await Promise.all(
-      configurationErrors.map(async (error) => {
-        await expect(koboIntegrationDialog.dialog).toContainText(error);
-      }),
-    );
-
-    await Promise.all(
-      missingFields.map(async (field) => {
-        await expect(koboIntegrationDialog.dialog).toContainText(field);
-      }),
-    );
   }
 }
 
