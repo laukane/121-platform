@@ -2568,6 +2568,9 @@
       <trans-unit id="4038197238266947223" datatype="html">
         <source>You do not have permission to configure Kobo integration</source>
       </trans-unit>
+      <trans-unit id="142336827262543546" datatype="html">
+        <source>Integrated FSP&apos;s</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>
