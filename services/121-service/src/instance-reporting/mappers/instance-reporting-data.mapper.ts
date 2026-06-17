@@ -23,8 +23,14 @@ export class InstanceReportingDataMapper {
         registration.program,
       ),
       programId: registration.program.id,
-      status: registration.registrationStatus,
+      status: registration.status,
       referenceId: registration.referenceId,
+      createdDate: registration.created.toISOString(),
+      preferredLanguage: registration.preferredLanguage,
+      fspName: registration.fspName,
+      paymentAmountMultiplier: registration.paymentAmountMultiplier,
+      maxPayments: registration.maxPayments,
+      duplicateStatus: registration.duplicateStatus,
       uploadDate,
     };
   }
@@ -53,6 +59,8 @@ export class InstanceReportingDataMapper {
       amount: transaction.transferValue,
       localCurrency: program.currency,
       createdDate: transaction.created.toISOString(),
+      startedDate:
+        transaction.transactionEvents?.[0]?.created.toISOString() ?? null,
       updatedDate: transaction.updated.toISOString(),
       registrationReferenceId: transaction.registration.referenceId,
       uploadDate,

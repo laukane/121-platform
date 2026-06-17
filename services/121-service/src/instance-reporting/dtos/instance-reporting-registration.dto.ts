@@ -19,6 +19,24 @@ export class InstanceReportingRegistrationDto {
   @ApiProperty({ example: 'abc-123' })
   readonly referenceId: string;
 
+  @ApiProperty({ example: '2026-03-30T12:00:00.000Z' })
+  readonly createdDate: string;
+
+  @ApiProperty({ example: 'en', nullable: true })
+  readonly preferredLanguage: string | null;
+
+  @ApiProperty({ example: 'Safaricom', nullable: true })
+  readonly fspName: string | null;
+
+  @ApiProperty({ example: 1 })
+  readonly paymentAmountMultiplier: number;
+
+  @ApiProperty({ example: 3, nullable: true })
+  readonly maxPayments: number | null;
+
+  @ApiProperty({ example: 'unique' })
+  readonly duplicateStatus: string;
+
   @ApiProperty({ example: '2026-03-30' })
   readonly uploadDate: string;
 }

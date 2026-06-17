@@ -6,6 +6,9 @@ export interface InstanceReportingTransactionRaw {
   transferValue: number | null;
   created: Date;
   updated: Date;
+  // The 'Transaction started' event(s). Used to report when processing of the
+  // transaction started (i.e. after approval). At most one is expected.
+  transactionEvents?: { id: number; created: Date }[];
   registration: {
     id: number;
     referenceId: string;
